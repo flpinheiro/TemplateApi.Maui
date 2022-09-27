@@ -44,9 +44,12 @@ public class PersonService : IPersonService
         return await SendAsync<PaginationResponse>(msg) ?? new PaginationResponse(0,0);
     }
 
-    public Task Delete(string id)
+    public async Task Delete(string id)
     {
-        throw new NotImplementedException();
+        var uri = new Uri(_baseUri, $"Person/{id}");
+        var msg = new HttpRequestMessage(HttpMethod.Delete, uri);
+
+        await SendAsync(msg);
     }
 
     public async Task<PersonViewModel> Get(string id)
@@ -77,9 +80,16 @@ public class PersonService : IPersonService
         return await SendAsync<IEnumerable<PersonViewModel>>(msg) ?? new List<PersonViewModel>();
     }
 
-    public Task Update(PersonViewModel person)
+    public async Task Update(PersonViewModel person)
     {
-        throw new NotImplementedException();
+        var id = person.Id;
+        var uri = new Uri(_baseUri, $"Person/{id}");
+        var msg = new HttpRequestMessage(HttpMethod.Put, uri)
+        {
+            Content = JsonContent.Create(person),
+        };
+
+        await SendAsync(msg);
     }
 
     private static string GetQuery(PersonQuery personQuery, PaginationQuery? paginationQuery = null)
@@ -98,5 +108,11 @@ public class PersonService : IPersonService
         var returnedJson = await response.Content.ReadAsStringAsync();
         var content = JsonSerializer.Deserialize<T>(returnedJson, _options);
         return content;
+    }
+
+    private async Task SendAsync(HttpRequestMessage msg)
+    {
+        var response = await _client.SendAsync(msg);
+        response.EnsureSuccessStatusCode();
     }
 }

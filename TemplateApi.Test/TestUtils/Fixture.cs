@@ -20,6 +20,8 @@ namespace TemplateApi.Test.TestUtils
             Name = "Test_user"
         };
 
+        public static PaginationResponse PaginationResponse { get; } = new PaginationResponse(2,15);
+
         public static PaginationQuery PaginationQuery { get; } = new PaginationQuery();
 
         public static PersonViewModel PersonViewModel { get; } = new PersonViewModel()
@@ -44,5 +46,6 @@ namespace TemplateApi.Test.TestUtils
 
         public static string PersonViewModelString { get; } = JsonSerializer.Serialize(PersonViewModel, jsonSerializerOptions);
         public static string PersonViewModelListString { get; } = JsonSerializer.Serialize(PersonViewModels, jsonSerializerOptions);
+        public static string PaginationResponseString { get; } = JsonSerializer.Serialize(PaginationResponse, jsonSerializerOptions);
     }
 }
