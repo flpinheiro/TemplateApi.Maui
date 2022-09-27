@@ -18,11 +18,12 @@ public static class MauiProgram
 
 		builder.Services.AddScoped<IPersonService, PersonService>();
 
-		_ = builder.Services.AddHttpClient(nameof(PersonService), client =>
+		builder.Services.AddHttpClient(nameof(PersonService), client =>
 		{
             var url = DeviceInfo.Platform == DevicePlatform.Android ? "http://10.0.2.2:5000" : "http://localhost:5000";
-            client.BaseAddress = new Uri($"{url}/api/Person");
+            client.BaseAddress = new Uri($"{url}/api");
             client.DefaultRequestHeaders.Add("Accept", "application/json");
+			client.DefaultRequestHeaders.Add("Content-Type", "application/json");
 		});
 
 

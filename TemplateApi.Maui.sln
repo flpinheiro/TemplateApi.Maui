@@ -5,7 +5,9 @@ VisualStudioVersion = 17.0.31611.283
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TemplateApi.Maui", "TemplateApi.Maui\TemplateApi.Maui.csproj", "{5670931A-3A5D-4304-AB3D-3B7E7056B765}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TemplateApi.Domain", "TemplateApi.Domain\TemplateApi.Domain.csproj", "{AA0545F0-3F08-4E63-A1DA-78B4F62785CF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TemplateApi.Domain", "TemplateApi.Domain\TemplateApi.Domain.csproj", "{AA0545F0-3F08-4E63-A1DA-78B4F62785CF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TemplateApi.Test", "TemplateApi.Test\TemplateApi.Test.csproj", "{C189286D-E431-4EEB-B56E-466258917B9B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,6 +25,10 @@ Global
 		{AA0545F0-3F08-4E63-A1DA-78B4F62785CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AA0545F0-3F08-4E63-A1DA-78B4F62785CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AA0545F0-3F08-4E63-A1DA-78B4F62785CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C189286D-E431-4EEB-B56E-466258917B9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C189286D-E431-4EEB-B56E-466258917B9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C189286D-E431-4EEB-B56E-466258917B9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C189286D-E431-4EEB-B56E-466258917B9B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
